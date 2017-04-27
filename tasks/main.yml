@@ -35,4 +35,3 @@
     subnet_map: '{{ subnet_map| default({}) | combine({ item.name: item.id }) }}'
   with_items: '{{ awsvpc | json_query("subnets[*].{ id: id, name: resource_tags.Name}") }}'
 
-- debug: var=subnet_map
